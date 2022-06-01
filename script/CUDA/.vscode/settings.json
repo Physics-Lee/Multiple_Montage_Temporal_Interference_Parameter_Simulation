@@ -1,0 +1,14 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#511541",
+        "titleBar.activeBackground": "#721D5B",
+        "titleBar.activeForeground": "#FDF8FC"
+    },
+    "files.associations": {
+        "*.m": "matlab",
+        "map": "cpp",
+        "unordered_map": "cpp",
+        "xhash": "cpp"
+    },
+    "editor.defaultFormatter": "xaver.clang-format"
+}

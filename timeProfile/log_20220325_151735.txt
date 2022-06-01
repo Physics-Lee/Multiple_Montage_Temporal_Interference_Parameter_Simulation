@@ -1,0 +1,129 @@
+Element type is tetraheron in gray and white matter in brain ...
+Already existed input data for GPU, omit producing input mat file.
+Define ROI region node index...
+Phase 1. Calculate the Elf of ROI in Max form for screen.
+Phase1 : CPU calculation in takes time : 37.4113 s...
+Not using prefered electric orientation...
+N: 445  N128: 512  L: 76
+Nc: 3848925
+Object in ROI is in MAX form
+Area is useless.
+prepare time:  26.790 ms 
+blockSize:  64, gridSize: 10720 
+Nloop: 2873, Ki:  1340
+Kernel time:  934.578 ms 
+Rest Max time:  126.459 ms 
+ROI Max gpu part end...
+ROI MAX form.
+Phase1 : GPU calculation in takes time : 1.5221 s...
+Phase 1. The speed ratio between CPU and GPU is 2457.9542 .
+The survived montage number is 12735104.
+           <strong>elec</strong>             <strong>cu</strong>       <strong>ROI</strong>  
+    <strong>___________________</strong>    <strong>____</strong>    <strong>_______</strong>
+
+    1     2     3     6     0.7    0.20007
+    1     2     3     6    0.75    0.20275
+    1     2     3     6     0.8    0.20317
+    1     2     3     6    0.85    0.20154
+    1     2     3    13     0.6    0.21415
+
+Phase 2. Calculate the Elf in Other brain region with screened parameters.
+Phase 2. CPU calculation in takes time : 124.611 s...
+Leadfield element number: 1744324
+Leadfield element number with padding: 1744384
+Electrode pool number: 76
+Montage number: 1273510
+Elec A Number: 2
+Elec B Number: 2
+Volume element Number: 1744384
+Output is VOLUME above thres in the region.
+prepare time:  449.178 ms 
+r2Size:  7209212
+Nloop:  2408, K: 529 
+blockSize:  128, gridSize: 7209212
+The time consumption of 25 loops is about 2836.059 ms 
+Kernel time:  300416.562 ms 
+Rest PR time:  1183.946 ms 
+Multi elec GPU part end...
+GPU calculation takes time : 303.3946 s...
+Phase 2. The speed ratio between CPU and GPU is 1743.5308 .
+<a href="matlab: opentoline('C:\Users\psylab706\Documents\MATLAB\ZW\git\TIPS\CompareSpeed.m',95,1)">95  </a>t0 = tic;
+uiopen('C:\Users\psylab706\Documents\MATLAB\ZW\git\TIPS\script\Phase1\Phase1WrapperCPU.m',1)
+ylabel('Second');
+ylabel('Speed Ratio GPU VS CPU');
+if system_dependent('IsDebugMode')==1, dbquit all; end
+figure;
+x_name = {'ROI phase','Other phase'};
+x = categorical(x_name);
+x = reordercats(x,x_name);
+y = [speedRatio,speedRatio2];
+b = bar(x,y,.4);
+ylabel('Speedup GPU/CPU');
+title('4-electrode optimization in exhaustion method');
+edit GA_elec4
+T(1:5,:)
+{Unrecognized function or variable 'T'.
+} 
+T1(1:5,:)
+
+ans =
+
+  5×3 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+           <strong>elec</strong>             <strong>cu</strong>       <strong>ROI</strong>  
+    <strong>___________________</strong>    <strong>____</strong>    <strong>_______</strong>
+
+    1     2     3     6     0.7    0.20007
+    1     2     3     6    0.75    0.20275
+    1     2     3     6     0.8    0.20317
+    1     2     3     6    0.85    0.20154
+    1     2     3    13     0.6    0.21415
+
+T1.cu(1:5,:)
+
+ans =
+
+  5×1 <a href="matlab:helpPopup single" style="font-weight:bold">single</a> column vector
+
+    0.7000
+    0.7500
+    0.8000
+    0.8500
+    0.6000
+
+T1.cu(1:5)
+
+ans =
+
+  5×1 <a href="matlab:helpPopup single" style="font-weight:bold">single</a> column vector
+
+    0.7000
+    0.7500
+    0.8000
+    0.8500
+    0.6000
+
+mean(T1.cu(1:5))
+
+ans =
+
+  <a href="matlab:helpPopup single" style="font-weight:bold">single</a>
+
+    0.7400
+
+T1(1,2)
+
+ans =
+
+  <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>cu</strong> 
+    <strong>___</strong>
+
+    0.7
+
+edit SortObject
+edit GA_elec8
+main
+This script is to compare the speed of GPU and CPU framework.
+The subject mesh has been created...

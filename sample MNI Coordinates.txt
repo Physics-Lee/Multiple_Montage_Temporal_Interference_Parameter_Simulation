@@ -1,0 +1,3 @@
+dACC [1 18 39]
+bilateral DLPFC [-44 6 33;43 9 30]
+left NAcc [-12 8 -8]

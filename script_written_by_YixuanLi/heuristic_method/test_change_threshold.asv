@@ -1,0 +1,4 @@
+for i = [5 10 11 15 18 22]
+    set_dataRoot_subMark_simMark(i);
+    directory = fullfile(dataRoot,subMark,'TI_sim_result',simMark);
+end
