@@ -1,12 +1,12 @@
 %% often change
-subject_range = [11]; % 被试范围
+subject_range = [15]; % 被试范围
 montage_chosen = [1]; % 选哪个montage当seed
-montage_number = 2; % 最后选出多少个电极，正式操作时选10
+montage_number = 10; % 最后选出多少个电极，正式操作时选10
 penalty_coefficient_range = [1.5]; % 惩罚系数的范围，正式操作时选[1.5:0.5:4 5:1:10 12:2:20 50 100]
-global montage_number_threshold;
-montage_number_threshold = 1*10^5; % 电极组合的阈值，正式操作时选2*10^5
 global n_alternative;
-n_alternative = 10; % 每次惩罚后选前多少名作为备选montage，正式操作时选100
+n_alternative = 100; % 每次惩罚后选前多少名作为备选montage，正式操作时选100
+global montage_number_threshold;
+montage_number_threshold = 1*10^5; % 电极组合的阈值
 
 %% not often change
 switch_screen_criterion = 1; % 筛选标准1：在备选montage中，选n下降得最多的作为新montage

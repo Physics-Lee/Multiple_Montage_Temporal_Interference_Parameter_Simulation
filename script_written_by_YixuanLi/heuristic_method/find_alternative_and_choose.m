@@ -83,7 +83,7 @@ while(1)
     
     % save chosen montage to montage_coupled
     [montage_coupled,row_number] = save_chosen_montage(montage_coupled,row_number,n_Other_pre,ratio_pre,n_ROI_pre,montage_alternative,row_index_of_chosen_montage);
-    save(fullfile(directory,'montage_cosupled.mat'),'montage_coupled');
+    save(fullfile(directory,'montage_coupled.mat'),'montage_coupled');
     fprintf('The coupled montages will be showed below:\n');
     disp(montage_coupled);
     
