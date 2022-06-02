@@ -1,12 +1,4 @@
-function avoid_idx = draw_sphere_in_MNI_space_and_return_avoid_idx(cfg,Elf,E_threshold,ROI_idx,color,markertype,count_main_round,flag_break,directory)
-
-
-
-
-
- % 画球、算距离、返回avoid_idx可以拆成3个函数
- % 画球、算距离都用了MNI坐标，这是之前我没能把它俩拆开的原因
-
+function avoid_idx = verify_avoid_idx(cfg,Elf,E_threshold,ROI_idx,color,markertype,count_main_round,flag_break,directory)
 % %% verify avoid_idx
 % 
 % avoid_tet_ranking_number = find(avoid_idx);
