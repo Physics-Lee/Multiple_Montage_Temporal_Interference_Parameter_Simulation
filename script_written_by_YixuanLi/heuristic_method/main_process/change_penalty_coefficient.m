@@ -13,11 +13,11 @@ for i = penalty_coefficient_range
     fprintf('-----------------------------------------penalty coefficient == %.1f----------------------------------------\n',i);
     cfg.Avoid.coef = i;
     temp = OpenTIPS(cfg,montage_number_threshold); % 这一行是我的代码和张为师兄的代码的接口
-    directory_elec4_Exhaustion_PenaltyCoefficient1 = [fullfile(dataRoot,subMark,'TI_sim_result',simMark) '\elec4_Exhaustion_PenaltyCoefficient1.mat'];
+    directory_initial_elec4= [fullfile(dataRoot,subMark,'TI_sim_result',simMark) '\elec4_Exhaustion_T1_' num2str(montage_number_after_Phase_1) '_PenaltyCoefficient_1.mat'];
     for j = 1:n_alternative
         electrode_wanted = [temp.elecA(j,1) temp.elecA(j,2) temp.elecB(j,1) temp.elecB(j,2)]; % find the wanted montage
         current_wanted =  temp.cuA(j,1);
-        ranking_initial = find_the_wanted_electrode(directory_elec4_Exhaustion_PenaltyCoefficient1,electrode_wanted,current_wanted);
+        ranking_initial = find_the_wanted_electrode(directory_initial_elec4,electrode_wanted,current_wanted);
         montage_alternative(row_number,1) = i;
         montage_alternative(row_number,2:5) = electrode_wanted;
         montage_alternative(row_number,6) = current_wanted;

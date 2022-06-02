@@ -1,4 +1,4 @@
-function T = OpenTIPS(cfg,montage_number_threshold)
+function [T,montage_number_after_Phase_1] = OpenTIPS(cfg,montage_number_threshold)
 
 %% pre process
 % start time
@@ -12,7 +12,6 @@ thres = 0.15;
 elecNum = cfg.elecNum;
 optimalMethod = cfg.optimalMethod;
 simDir = fullfile(dataRoot,subMark,'TI_sim_result',simMark);
-save(fullfile(simDir,'cfg.mat'),'cfg'); % 保存cfg
 
 % Check brain mesh
 SIMNIBS_headreco(dataRoot,subMark); % first time running for building mesh
@@ -31,11 +30,14 @@ end
 disp('Phase 1. Calculate the Elf of ROI for screen.');
 if isfile([simDir '\T1_' num2str(montage_number_threshold) '.mat']) % 如果存在该文件夹
     load([simDir '\T1_' num2str(montage_number_threshold) '.mat'],'T1');
+    montage_number_after_Phase_1 = montage_number_threshold;
 else % 如果不存在该文件夹
     cu = (0.5+(0:20)*0.05)';
     cmb = int32(nchoosek(1:size(electrodes,1),4)); % 从76个整数里面选出4个
     [A_ROI,cmb3] = Phase1Wrapper(inputROI,cmb,cu,thres); % Phase1Wrapper
     T1 = Phase1Screen(A_ROI,cmb3,cu,thres,inputROI.alpha); % Phase1Screen
+    cfg.Avoid.coef = 1;
+    montage_number_after_Phase_1 = size(T1,1);
 end
 U4 = T2U(T1);
 %% step 2: Other sort

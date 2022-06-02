@@ -1,12 +1,12 @@
 %% often change
-subject_range = [15]; % 被试范围
+subject_range = 1:26; % 被试范围
 montage_chosen = [1]; % 选哪个montage当seed
-montage_number = 10; % 最后选出多少个电极，正式操作时选10
-penalty_coefficient_range = [1.5]; % 惩罚系数的范围，正式操作时选[1.5:0.5:4 5:1:10 12:2:20 50 100]
-global n_alternative;
-n_alternative = 100; % 每次惩罚后选前多少名作为备选montage，正式操作时选100
+montage_number = 6; % 最后选出多少个电极，正式操作时选10
+penalty_coefficient_range = [1.5:0.5:4 5:1:10 12:2:20 50 100]; % 惩罚系数的范围，正式操作时选[1.5:0.5:4 5:1:10 12:2:20 50 100]
 global montage_number_threshold;
 montage_number_threshold = 1*10^5; % 电极组合的阈值
+global n_alternative;
+n_alternative = 100; % 每次惩罚后选前多少名作为备选montage，正式操作时选100
 
 %% not often change
 switch_screen_criterion = 1; % 筛选标准1：在备选montage中，选n下降得最多的作为新montage
@@ -19,6 +19,8 @@ switch_adding_proportion = 1;  % 添加比例：1代表不用k，2代表用k
 global count_of_figure;
 count_of_figure = 1;
 
+global montage_number_after_Phase_1;
+
 %% main process
 for i = subject_range        
     %% start time
@@ -27,6 +29,11 @@ for i = subject_range
     %% set directory
     [dataRoot,subMark,simMark] = set_dataRoot_subMark_simMark(i); % set [dataRoot,subMark,simMark] for different subjects
     directory = fullfile(dataRoot,subMark,'TI_sim_result',simMark); % set directory
+    
+    %% 准备
+    load(fullfile(directory,'cfg.mat'));
+    [~,montage_number_after_Phase_1] = OpenTIPS(cfg,10^5);
+    OpenTIPS(cfg,10^5);
     
     %% core
     find_alternative_and_choose(dataRoot,subMark,simMark,montage_chosen,montage_number,penalty_coefficient_range,switch_screen_criterion); % find alternatives and choose one montage from these alternatives
