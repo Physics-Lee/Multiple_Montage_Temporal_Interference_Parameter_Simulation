@@ -15,7 +15,7 @@ xlabel('subject number');
 ylabel('a');
 legend('a pre','a post');
 title('若假定a服从均值等于零且方差未知的正态分布，则p值为',p_a);
-
+Q
 figure(2)
 scatter(x,b_pre,50,'filled','blue','o');
 hold on;

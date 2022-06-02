@@ -1,4 +1,4 @@
-subject_range = [1:26]; % 被试范围
+subject_range = [2]; % 被试范围
 
 for i = subject_range
     % jump 11
@@ -6,7 +6,7 @@ for i = subject_range
         continue;
     end
     
-    load(['F:\1_learning\1_theory_experiment_computation\TI+ISP\montage_coupled\montage_coupled_' num2str(i) '.mat']);
+    load(['F:\1_learning\1_theory_experiment_computation\TI+ISP\result\montage_coupled\montage_coupled_' num2str(i) '.mat']);
     
     montage_chosen = montage_coupled(:,2); % 最开始选哪个montage当seed
     
