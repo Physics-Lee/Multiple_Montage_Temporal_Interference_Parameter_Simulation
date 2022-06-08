@@ -8,6 +8,7 @@ row_number = 1;
 montage_alternative = NaN;
 global n_alternative;
 global montage_number_threshold;
+global montage_number_after_Phase_1;
 for i = penalty_coefficient_range
     fprintf('--------------------------------------------------round %d--------------------------------------------------\n',count_i);
     fprintf('-----------------------------------------penalty coefficient == %.1f----------------------------------------\n',i);
