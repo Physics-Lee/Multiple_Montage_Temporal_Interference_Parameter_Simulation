@@ -26,6 +26,7 @@ row_number = 1; % montage_coupled的行数
 flag_break = 0; % 最后一个montage要用
 
 while(1)    
+    %% pre process
     fprintf('-----------------------------------------main round %d-----------------------------------------\n',count_main_round);
     
     % calculate ELf_average of all the previous montages

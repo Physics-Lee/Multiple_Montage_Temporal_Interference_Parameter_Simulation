@@ -20,6 +20,6 @@ switch i
 end
 
 % simMark
-simMark = 'NAc';
+simMark = 'NAc_20220616';
 
 end
