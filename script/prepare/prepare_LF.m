@@ -77,15 +77,19 @@ volume_ROI = Volume_brain(ROI_idx);
 
 %% Avoid
 try 
-    disp('Define Avoid region node index...');
-    Avoid_idx = load([directory '\avoid_idx.mat']); % !!!
+    
+    Avoid_idx = load([directory '\avoid_idx.mat']);
+    disp('avoid_idx.mat exists!!!');
+    
     Avoid_idx = Avoid_idx.avoid_idx;
     Avoid_idx = find(Avoid_idx);
+    
     if cfg.nt
         E_brain(Avoid_idx,:) = E_brain(Avoid_idx,:) * cfg.Avoid.coef;
     else
         E_brain(Avoid_idx,:,:) = E_brain(Avoid_idx,:,:) * cfg.Avoid.coef;
     end
+    
 catch
     disp('avoid_idx.mat does not exist!!!');
 end

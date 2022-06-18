@@ -11,7 +11,6 @@ else
     alpha = int32(input.alpha);
 end
 vflag = true;
-%%
 blockSize = int32(128);
 parallelNum = getKcPhase2(N,U.num);
 %% GPU process
