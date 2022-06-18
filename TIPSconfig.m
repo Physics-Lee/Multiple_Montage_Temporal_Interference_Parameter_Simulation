@@ -17,9 +17,9 @@ length(varNames);
 %% ROI
 cfg.ROI.num = 1;
 cfg.ROI.table = table('Size',[cfg.ROI.num,length(varNames)],'VariableTypes',varTypes,'VariableNames',varNames);
-cfg.ROI.table.Name = "DLPFC";
+cfg.ROI.table.Name = "ACC";
 cfg.ROI.table.Shape = "Sphere";
-cfg.ROI.table.CoordMNI = [-44 6 33];
+cfg.ROI.table.CoordMNI = [1 18 39];
 directory_of_subject2mni_coords = [fullfile(dataRoot,subMark) '\m2m_' subMark '/'];
 cfg.ROI.table.CoordSub = mni2subject_coords(cfg.ROI.table.CoordMNI,directory_of_subject2mni_coords, 'nonl');
 cfg.ROI.table.Radius = 5;
