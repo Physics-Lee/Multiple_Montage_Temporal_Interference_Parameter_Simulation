@@ -48,6 +48,9 @@ if ~isfile([directory_of_cfg ['\T1_' num2str(montage_number_threshold) '.mat']])
     % 先存一下elec4
     saveFile = fullfile(directory_of_cfg,['elec' num2str(cfg.elecNum) '_' optimalMethod '_T1_' num2str(size(T1,1)) '_PenaltyCoefficient_' num2str(cfg.Avoid.coef) '.mat']);
     save(saveFile,'optimalMethod','elecNum','T','electrodes');
+    % 把montage_number_after_phase_1存到cfg里
+    cfg.montage_number_after_phase_1 = size(T1,1);
+    save(fullfile(directory_of_cfg,'cfg.mat'),'cfg');
     % 取出前montage_number_threshold个montage并保存
     elec = [T.elecA T.elecB];
     cu = T.cuA(:,1);
