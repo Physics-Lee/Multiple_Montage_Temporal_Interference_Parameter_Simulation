@@ -11,6 +11,8 @@ switch i
         subMark = 'RJC';
     case 26
         subMark = 'ernie';
+    case 27 
+        subMark = 'LYX';
     otherwise
         if i <= 9
             subMark = ['00' int2str(i)];

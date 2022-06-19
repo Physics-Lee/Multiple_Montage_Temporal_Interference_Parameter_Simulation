@@ -1,8 +1,8 @@
 %% pre process
-subject_range = 1:26; % 被试范围
+subject_range = 1:10; % 被试范围
 montage_chosen = [1]; % 选哪个montage当seed
-montage_number = 6; % 最后选出多少个电极，正式操作时选10
-penalty_coefficient_range = [1.5:0.5:4 5:1:10 12:2:20 50 100]; % 惩罚系数的范围，正式操作时选[1.5:0.5:4 5:1:10 12:2:20 50 100]
+montage_number = 6; % 最后选出多少个电极
+penalty_coefficient_range = [2:1:5 6:2:10 12:4:20 50 100]; % 惩罚系数的范围
 
 global montage_number_threshold;
 montage_number_threshold = 1*10^5; % 电极组合的阈值
@@ -30,6 +30,7 @@ for i = subject_range
     start = datestr(now); 
     
     %% core
+    [dataRoot,subMark,simMark] = set_dataRoot_subMark_simMark(i);
     find_alternative_and_choose(dataRoot,subMark,simMark,montage_chosen,montage_number,penalty_coefficient_range,switch_screen_criterion); % find alternatives and choose one montage from these alternatives
     
     %% end time

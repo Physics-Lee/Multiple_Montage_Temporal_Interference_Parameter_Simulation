@@ -1,10 +1,10 @@
 function find_alternative_and_choose(dataRoot,subMark,simMark,montage_chosen,montage_number,penalty_coefficient_range,switch_screen_criterion)
 %% pre process
 % set directory
-directory = fullfile(dataRoot,subMark,'TI_sim_result',simMark);
+directory_of_cfg = fullfile(dataRoot,subMark,'TI_sim_result',simMark);
 
 % upload cfg.mat and elec4.mat
-[cfg,elec4] = upload_cfg_and_elec4(directory);
+[cfg,elec4] = upload_cfg_and_elec4(directory_of_cfg);
 
 % upload hdf5
 hdf5 = upload_hdf5(cfg);
@@ -45,10 +45,10 @@ while(1)
     ratio_pre = heuristic_calculate_average_ratio(input,Elf_average,ROI_idx); 
     
     % histogram of ROI and Other: x轴为电场强度，y轴为小四面体个数
-    histogram_ROI_Other(Elf_average,ROI_idx,count_main_round,flag_break,directory);
+    histogram_ROI_Other(Elf_average,ROI_idx,count_main_round,flag_break,directory_of_cfg);
     
     % histogram of distance
-    distance_ascend = histogram_distance(cfg,ranking_list_of_200w_tet_descend,center_of_tet_above_E_threshold_MNI_coord,count_main_round,flag_break,directory);
+    distance_ascend = histogram_distance(cfg,ranking_list_of_200w_tet_descend,center_of_tet_above_E_threshold_MNI_coord,count_main_round,flag_break,directory_of_cfg);
     
     % draw sphere in MNI space
     draw_sphere_in_MNI_space(center_of_tet_above_E_threshold_MNI_coord,cfg,'red','+');    
@@ -84,7 +84,7 @@ while(1)
     
     % save chosen montage to montage_coupled
     [montage_coupled,row_number] = save_chosen_montage(montage_coupled,row_number,n_Other_pre,ratio_pre,n_ROI_pre,montage_alternative,row_index_of_chosen_montage);
-    save(fullfile(directory,'montage_coupled.mat'),'montage_coupled');
+    save(fullfile(directory_of_cfg,'montage_coupled.mat'),'montage_coupled');
     fprintf('The coupled montages will be showed below:\n');
     disp(montage_coupled);
     
@@ -104,10 +104,10 @@ Elf_average = calculate_Elf_average_of_previous_montages(montage_chosen,ROI_idx,
 
 % histogram of ROI and Other: x轴为电场强度，y轴为小四面体个数
 count_main_round = count_main_round + 1;
-histogram_ROI_Other(Elf_average,ROI_idx,count_main_round,flag_break,directory);
+histogram_ROI_Other(Elf_average,ROI_idx,count_main_round,flag_break,directory_of_cfg);
 
 % histogram of distance
-histogram_distance(cfg,ranking_list_of_200w_tet_descend,center_of_tet_above_E_threshold_MNI_coord,count_main_round,flag_break,directory);
+histogram_distance(cfg,ranking_list_of_200w_tet_descend,center_of_tet_above_E_threshold_MNI_coord,count_main_round,flag_break,directory_of_cfg);
 
 close all;
 

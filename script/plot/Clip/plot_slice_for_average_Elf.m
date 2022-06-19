@@ -1,4 +1,4 @@
-function h = plotClip(cfg,U,Elf_Ub,clipStr,mode,ROI_center_sub,Avoid_center_sub)
+function h = plot_slice_for_average_Elf(cfg,Elf_average,E_max_in_the_color_bar,clipStr,mode,ROI_center_sub,Avoid_center_sub)
 dataRoot = cfg.dataRoot;
 subMark = cfg.subMark;
 %% Elf in whole brain
@@ -27,7 +27,6 @@ catch
     input.volume = Data.volume;
 end
 input.N = size(input.E,1);
-[~,~,Elf] = Onetime(input,U,cfg.thres);
 %% CSF contour
 [node,~,simNIBS_face] = MeshfromSimnibs(dataRoot,subMark);
 csfMark = 1003;
@@ -56,7 +55,7 @@ end
 %% In every clip section
 for i = 1:length(clipStr)
     [TR_section,eIdx] = TetCrossSection(mesh.DT,clipStr{i});
-    Elf_section = Elf(eIdx,:);
+    Elf_section = Elf_average(eIdx,:);
     EV_CSF = SurfCrossSection(TR_CSF,clipStr{i},node);
     [XYZmark,XYZvalue,dof] = str2XYZ(clipStr{i});
     %% plot
@@ -64,7 +63,7 @@ for i = 1:length(clipStr)
     title(clipStr{i});
     axis equal;
     axis off;
-    h = plotCrossSection(h,TR_section,Elf_section,Elf_Ub);
+    h = plotCrossSection(h,TR_section,Elf_section,E_max_in_the_color_bar);
     hold on;
     h = plotContour(h,EV_CSF.Points,EV_CSF.Edge{1},dof,'k-','LineWidth',5);
     switch mode

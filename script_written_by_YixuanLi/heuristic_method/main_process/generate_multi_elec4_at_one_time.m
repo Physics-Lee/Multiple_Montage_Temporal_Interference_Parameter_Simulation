@@ -1,4 +1,4 @@
-for i = 1:10    
+for i = 27
     [dataRoot,subMark,simMark] = set_dataRoot_subMark_simMark(i);
     directory_of_cfg = fullfile(dataRoot,subMark,'TI_sim_result',simMark);
     load(fullfile(directory_of_cfg,'cfg.mat'),'cfg');
