@@ -10,6 +10,7 @@ main process
 
 post process
 
-1. run post_process_percentage.m to calculate percentage for group average
-2. run post_process_hist.m to calculate hist for group average
-3. run plot_slice to draw qualitative hot graph of each subject
+1. quantitative: run post_process_percentage.m to calculate percentage for group average
+2. quantitative: run post_process_hist.m to calculate histogram for group average
+3. qualitative: run plot_slice to draw hot graph of each subject
+

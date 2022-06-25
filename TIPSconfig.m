@@ -17,9 +17,9 @@ length(varNames);
 %% ROI
 cfg.ROI.num = 1;
 cfg.ROI.table = table('Size',[cfg.ROI.num,length(varNames)],'VariableTypes',varTypes,'VariableNames',varNames);
-cfg.ROI.table.Name = "NAc";
+cfg.ROI.table.Name = "M1";
 cfg.ROI.table.Shape = "Sphere";
-cfg.ROI.table.CoordMNI = [-12 8 -8];
+cfg.ROI.table.CoordMNI = [-32 -28 +68];
 directory_of_subject2mni_coords = [fullfile(dataRoot,subMark) '\m2m_' subMark '/'];
 cfg.ROI.table.CoordSub = mni2subject_coords(cfg.ROI.table.CoordMNI,directory_of_subject2mni_coords, 'nonl');
 cfg.ROI.table.Radius = 5;

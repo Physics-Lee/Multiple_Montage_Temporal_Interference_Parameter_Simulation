@@ -12,7 +12,7 @@ for i = subject_range
     montage_chosen = montage_coupled(:,2); % input montage_coupled
     
     % main process
-    for j = 1
+    for j = 1:length(montage_chosen) % or you can use 1:length(montage_chosen)
         
         %% get U
         fprintf('i = %d, j = %d, montage_rank = %d\n',i,j,montage_chosen(j));

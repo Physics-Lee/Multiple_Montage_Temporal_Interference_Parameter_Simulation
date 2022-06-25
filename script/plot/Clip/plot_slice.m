@@ -54,13 +54,13 @@ switch mode
         end
 end
 %% In every clip section
-for i = 1:length(clipStr)
+for i = 1 % You could change here to 1
     [TR_section,eIdx] = TetCrossSection(mesh.DT,clipStr{i});
     Elf_section = Elf(eIdx,:);
     EV_CSF = SurfCrossSection(TR_CSF,clipStr{i},node);
     [XYZmark,XYZvalue,dof] = str2XYZ(clipStr{i});
     %% plot
-    h = maxfigwin();
+    h = maxfigwin(); % 用库函数，不需要重新造轮子
     title(clipStr{i});
     axis equal;
     axis off;
