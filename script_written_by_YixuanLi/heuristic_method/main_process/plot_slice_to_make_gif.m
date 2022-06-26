@@ -1,4 +1,4 @@
-function h = plot_slice(cfg,U,E_max_in_the_color_bar,clipStr,mode,ROI_center_sub,Avoid_center_sub)
+function h = plot_slice_to_make_gif(cfg,U,E_max_in_the_color_bar,clipStr,mode,ROI_center_sub,Avoid_center_sub,direction_xyz)
 dataRoot = cfg.dataRoot;
 subMark = cfg.subMark;
 %% Elf in whole brain
@@ -54,19 +54,20 @@ switch mode
         end
 end
 %% In every clip section
-for i = 1 % You could change here to 1:3
+for i = direction_xyz % You could change here to 1:3
     [TR_section,eIdx] = TetCrossSection(mesh.DT,clipStr{i});
     Elf_section = Elf(eIdx,:);
     EV_CSF = SurfCrossSection(TR_CSF,clipStr{i},node);
     [XYZmark,XYZvalue,dof] = str2XYZ(clipStr{i});
     %% plot
     h = maxfigwin(); % 用库函数，不需要重新造轮子
-    title(clipStr{i});
+    title(clipStr{i},'FontSize',20);
     axis equal;
     axis off;
     h = plotCrossSection(h,TR_section,Elf_section,E_max_in_the_color_bar);
     hold on;
     h = plotContour(h,EV_CSF.Points,EV_CSF.Edge{1},dof,'k-','LineWidth',5);
+    pause(0.5);
     switch mode
         case 1
             if cfg.ROI.num>0
@@ -105,6 +106,7 @@ for i = 1 % You could change here to 1:3
                     end
                 end
             end
+            pause(0.5);
     end
 end
 end

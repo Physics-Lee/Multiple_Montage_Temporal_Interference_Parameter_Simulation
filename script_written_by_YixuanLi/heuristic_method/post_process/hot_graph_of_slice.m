@@ -18,9 +18,6 @@ for i = subject_range
         fprintf('i = %d, j = %d, montage_rank = %d\n',i,j,montage_chosen(j));
         U = T2U(elec4.T(montage_chosen(j),:));
         
-        %% plot electrode map
-        % plotElec1010(U,elec4.electrodes,0);
-        
         %% plot hot graph of slice
         
         % E max in the coloe bar

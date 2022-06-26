@@ -1,4 +1,5 @@
-subject_number = 1;
+clc;clear;close all;
+subject_number = 9;
 
 % upload cfg and elec4
 [dataRoot,subMark,simMark] = set_dataRoot_subMark_simMark(subject_number); % set [dataRoot,subMark,simMark] for different subjects

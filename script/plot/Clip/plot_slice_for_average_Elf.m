@@ -1,4 +1,4 @@
-function h = plot_slice_for_average_Elf(cfg,Elf_average,E_max_in_the_color_bar,clipStr,mode,ROI_center_sub,Avoid_center_sub)
+function h = plot_slice_for_average_Elf(cfg,Elf_average,E_max_in_the_color_bar,clipStr,mode,ROI_center_sub,Avoid_center_sub,direction_xyz)
 dataRoot = cfg.dataRoot;
 subMark = cfg.subMark;
 %% Elf in whole brain
@@ -53,14 +53,14 @@ switch mode
         end
 end
 %% In every clip section
-for i = 1:length(clipStr)
+for i = direction_xyz
     [TR_section,eIdx] = TetCrossSection(mesh.DT,clipStr{i});
     Elf_section = Elf_average(eIdx,:);
     EV_CSF = SurfCrossSection(TR_CSF,clipStr{i},node);
     [XYZmark,XYZvalue,dof] = str2XYZ(clipStr{i});
     %% plot
     h = maxfigwin();
-    title(clipStr{i});
+    title(clipStr{i},'FontSize',20);
     axis equal;
     axis off;
     h = plotCrossSection(h,TR_section,Elf_section,E_max_in_the_color_bar);
@@ -107,4 +107,3 @@ for i = 1:length(clipStr)
     end
 end
 end
-
