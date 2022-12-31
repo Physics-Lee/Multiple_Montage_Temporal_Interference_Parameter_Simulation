@@ -1,7 +1,7 @@
 %% pre process
 subject_range = 1:10; % 被试范围
 montage_chosen = [1]; % 选哪个montage当seed
-montage_number = 6; % 最后选出多少个电极
+montage_number = 6; % 最后选出多少组电极
 penalty_coefficient_range = [2:1:5 6:2:10 12:4:20 50 100]; % 惩罚系数的范围
 
 global montage_number_threshold;
