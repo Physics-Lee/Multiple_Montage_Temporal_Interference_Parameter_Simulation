@@ -1,4 +1,4 @@
-TIPS(temporal interference parameter simulation)
+# TIPS(temporal interference parameter simulation)
 
 Authors: Zhang Wei(weisheep@mail.ustc.edu.cn) and Ma Ru (maru@mail.ustc.edu.cn)
 
@@ -7,12 +7,14 @@ It helps experimenter to evaluate the individual TIS stimulation parameters, inc
 The evaluation needs the T1 and T2 MRI structural image of the subject to build tetrahedron brain mesh.This step is rely on SIMNIBS pipeline. 
     https://simnibs.github.io/simnibs/build/html/documentation/command_line/headreco.html?highlight=headreco
 TIPS is based on MATLAB and CUDA. 
+
 ****
 Computer recommended configuration
 Memory > 8G 
 SSD >= 256G (for virtual memory)
 Platform: windows 10
 GPU: NVIDIA, support CUDA, memory > 4G 
+
 ****
 Installation steps (on Windows 10):
 1. Install MSVC 2017 or 2019, then run the following command in MATLAB.
@@ -62,4 +64,31 @@ Automated anatomical labelling atlas 3. Rolls, E. T., Huang, C. C., Lin, C. P., 
 Lisence
 
 TIPS is copyrighted © by its authors and licensed under GPL v3.
+
+---
+
+# MMTIPS (Multiple Montage Temporal Interference Parameter Simulation)
+
+Arthur: Yixuan Li (hyperdunk2019@mail.ustc.edu.cn)
+
+[Our paper](https://www.biorxiv.org/content/10.1101/2022.12.30.522357v1) has demonstated that using successive stimulation of multiple montages has better effect than continuous stimulation of one montages.
+
+This toolbox aims to find the suitable montages which have a complementary effect. The suitable montages will be showed in montage_coupled.mat.
+
+---
+
+* main process
+
+1. run generate_multi_cfg_at_one_time.m to generate a cfg.mat for each subject
+
+2. run generate_multi_elec4_at_one_time.m to generate a elec4.mat for each subject
+
+3. run my_main.m to generate montage_coupled.mat for each subject
+
+![image-20221007205922104](C:\Users\11097\AppData\Roaming\Typora\typora-user-images\image-20221007205922104.png)
+
+
+* post process: run percentage.m to calculate percentage for group average
+
+---
 
