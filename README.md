@@ -71,8 +71,6 @@ TIPS is copyrighted © by its authors and licensed under GPL v3.
 
 Arthur: Yixuan Li (hyperdunk2019@mail.ustc.edu.cn)
 
-[Our paper](https://www.biorxiv.org/content/10.1101/2022.12.30.522357v1) has demonstated that using successive stimulation of multiple montages has better effect than continuous stimulation of one montages.
-
 This toolbox aims to find the suitable montages which have a complementary effect. The suitable montages will be showed in montage_coupled.mat.
 
 ---
@@ -84,9 +82,6 @@ This toolbox aims to find the suitable montages which have a complementary effec
 2. run generate_multi_elec4_at_one_time.m to generate a elec4.mat for each subject
 
 3. run my_main.m to generate montage_coupled.mat for each subject
-
-![image-20221007205922104](C:\Users\11097\AppData\Roaming\Typora\typora-user-images\image-20221007205922104.png)
-
 
 * post process: run percentage.m to calculate percentage for group average
 
