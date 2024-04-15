@@ -1,6 +1,6 @@
 # MMTIPS (Multiple Montage Temporal Interference Parameter Simulation)
 
-Arthur: Yixuan Li (hyperdunk2019@mail.ustc.edu.cn)
+Arthur: Yixuan Li (hyperdunk2019@mail.ustc.edu.cn), Zhang Wei(weisheep@mail.ustc.edu.cn).
 
 ## Goal
 
