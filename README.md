@@ -2,9 +2,11 @@
 
 Arthur: Yixuan Li (hyperdunk2019@mail.ustc.edu.cn)
 
+## Goal
+
 This toolbox aims to find the suitable montages which have a complementary effect. The suitable montages will be showed in montage_coupled.mat.
 
----
+## Workflow
 
 * main process
 
