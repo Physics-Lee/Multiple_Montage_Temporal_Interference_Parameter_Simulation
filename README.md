@@ -16,8 +16,6 @@ This toolbox aims to find the suitable montages which have a complementary effec
 
 * post process: run percentage.m to calculate percentage for group average
 
----
-
 # TIPS(temporal interference parameter simulation)
 
 Authors: Zhang Wei(weisheep@mail.ustc.edu.cn) and Ma Ru (maru@mail.ustc.edu.cn)
@@ -81,7 +79,4 @@ Ruthotto L, Kugel H, Olesch J, Fischer B, Modersitzki J, Burger M, and Wolters C
 3. [_AAL3_](https://www.gin.cnrs.fr/en/tools/aal/)
 Automated anatomical labelling atlas 3. Rolls, E. T., Huang, C. C., Lin, C. P., Feng, J., & Joliot, M., Neuroimage, 2020, 206, 116189, doi:10.1016/j.neuroimage.2019.116189
 ****
-Lisence
-
-TIPS is copyrighted © by its authors and licensed under GPL v3.
 
