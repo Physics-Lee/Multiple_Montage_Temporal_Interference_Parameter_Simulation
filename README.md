@@ -10,7 +10,7 @@ This toolbox aims to find the suitable montages which have a complementary effec
 
 ## Result
 
-![Figure 1](https://github.com/Physics-Lee/Multiple_Montage_Temporal_Interference_Parameter_Simulation/assets/68525696/1bdeea55-ffd5-445d-931f-1940bfb2f7ed)
+<img src="https://github.com/Physics-Lee/Multiple_Montage_Temporal_Interference_Parameter_Simulation/assets/68525696/1bdeea55-ffd5-445d-931f-1940bfb2f7ed" width="418" height="682">
 
 The circle indicates the ROI. A: sagittal plane, B: coronal plane, C: horizontal plane. Pre means the first montage of the original ranking. Post means 10 montages together. The blue area represents E < 0.2 V/m while the red area represents E > 0.2 V/m.
 
